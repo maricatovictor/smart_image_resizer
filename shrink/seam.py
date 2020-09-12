@@ -69,7 +69,7 @@ def remove_seam_grayscale(im, boolmask):
     return im[boolmask].reshape((h, w - 1))
 
 
-def get_minimum_seam(im, mask=None, energy="backward"):
+def get_minimum_seam(im, energy="backward"):
     """
     DP algorithm for finding the seam of minimum energy. Code adapted from
     https://karthikkaranth.me/blog/implementing-seam-carving-with-python/
@@ -77,9 +77,6 @@ def get_minimum_seam(im, mask=None, energy="backward"):
     h, w = im.shape[:2]
     energyfn = get_energy_fn(energy)
     M = energyfn(im)
-
-    if mask is not None:
-        M[np.where(mask > MASK_THRESHOLD)] = ENERGY_MASK_CONST
 
     backtrack = np.zeros_like(M, dtype=np.int)
 

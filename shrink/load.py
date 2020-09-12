@@ -1,8 +1,7 @@
 from PIL import Image
 import numpy as np
 import cv2
-
-from shrink.utils import rotate_image
+import matplotlib.pyplot as plt
 
 SEAM_COLOR = np.array([255, 200, 200])  # seam visualization color (BGR)
 
@@ -11,10 +10,11 @@ def load_image(filename: str) -> Image:
     return Image.open(filename)
 
 
-def visualize(im: np.ndarray, boolmask=None, rotate=False):
+def visualize(im):
     vis = im.astype(np.uint8)
-    if boolmask is not None:
-        vis[np.where(boolmask == False)] = SEAM_COLOR
-    if rotate:
-        vis = rotate_image(vis, False)
-    return Image.fromarray(im)
+    plt.imshow(vis)
+
+
+def save(image: np.ndarray, name="img.jpg"):
+    visualize(image)
+    cv2.imwrite(name, image)

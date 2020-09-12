@@ -1,5 +1,17 @@
 import numpy as np
 from scipy import ndimage as ndi
+from numba import jit
+
+
+@jit(forceobj=True)
+def get_energy_fn(energy):
+    if energy == "backward":
+        energyfn = backward_energy
+    elif energy == "forward":
+        raise NotImplementedError("Unavailable energy function")
+    else:
+        raise ValueError("Unknown energy function")
+    return energyfn
 
 
 def backward_energy(im):

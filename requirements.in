@@ -1,0 +1,9 @@
+numpy
+opencv-python
+imageio
+numba
+scipy
+matplotlib
+streamlit
+papermill
+dvc[gdrive]

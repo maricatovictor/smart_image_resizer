@@ -1,9 +1,7 @@
 import numpy as np
-
 from shrink.utils import visualize, resize
 from shrink.seam import (
     remove_seam,
-    remove_seam_grayscale,
     get_minimum_seam,
 )
 

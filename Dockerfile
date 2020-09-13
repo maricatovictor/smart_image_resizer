@@ -13,6 +13,6 @@ RUN pip install -r requirements.txt
 COPY streamlit/*.py /app/
 COPY shrink/ /app/shrink
 
-ENV STREAMLIT_SERVER_PORT=80 STREAMLIT_SERVER_ADDRESS=0.0.0.0 PYTHONPATH=/app
-EXPOSE 80
-CMD streamlit run app.py
+ENV STREAMLIT_SERVER_PORT=8080 STREAMLIT_SERVER_ADDRESS=0.0.0.0 PYTHONPATH=/app
+EXPOSE 8080
+CMD streamlit run app.py --server.enableCORS false

@@ -2,6 +2,7 @@ from PIL import Image
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
+from IPython.display import clear_output
 
 SEAM_COLOR = np.array([255, 200, 200])  # seam visualization color (BGR)
 
@@ -10,9 +11,12 @@ def load_image(filename: str) -> Image:
     return Image.open(filename)
 
 
-def visualize(im):
+def visualize(im, interactive=True):
+    if interactive:
+        clear_output(wait=True)
     vis = im.astype(np.uint8)
     plt.imshow(vis)
+    plt.show()
 
 
 def save(image: np.ndarray, name="img.jpg"):

@@ -1,0 +1,12 @@
+example:
+  cmd: papermill --log-output --stdout-file /dev/stdout seam_carving.ipynb /dev/null
+  deps:
+  - path: data/dali.jpg
+    md5: a71467338a51fa0733051c52d5433c55
+  params:
+    params.yaml:
+      downsize: 1000
+      n_shrink: 1
+  outs:
+  - path: data/resized.jpg
+    md5: a0eaa8b452d047500ab95de90dfe8e33

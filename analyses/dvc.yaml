@@ -1,0 +1,10 @@
+stages:
+    example:
+        cmd: papermill --log-output --stdout-file /dev/stdout seam_carving.ipynb /dev/null
+        deps:
+            - data/dali.jpg
+        outs:
+            - data/resized.jpg
+        params:
+            - n_shrink
+            - downsize
